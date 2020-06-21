@@ -20,7 +20,6 @@ router.post('/', function(req, res, next) {
 module.exports = router;
 
 const validate = function(emailList) {
-  console.log(JSON.stringify(emailList));
   let errorMessage = null;
 
   if (!emailList || !emailList.length || emailList.length < 1) {
@@ -46,7 +45,6 @@ const numberUniqueEmailAddrs = function(emailList) {
     let domain = emailPieces[1];
     let loginName = emailPieces[0].split("+")[0].replace(".", "");
     emailDictionary[`${loginName}@${domain}`] = 1;
-    console.log(`domain: ${domain} loginName: ${loginName}`);
   });
   return Object.keys(emailDictionary).length;
 }
